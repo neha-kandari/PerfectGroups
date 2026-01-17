@@ -212,23 +212,13 @@ Please get back to me.`;
                 value={formData.message}
                 onChange={handleInputChange}
               />
-              {/* <button
+              <button
                 type="submit"
                 className="w-full bg-[#f89a24] hover:bg-[#e08a1d] text-white font-bold uppercase tracking-widest px-6 py-3 rounded-lg text-xs sm:text-sm shadow-lg transition-colors"
               >
-                Send Message
-              </button> */}
-            </form>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full mt-3"
-            >
-              <button className="w-full bg-[#f89a24] hover:bg-[#e08a1d] text-white font-bold uppercase tracking-widest px-6 py-3 rounded-lg text-xs sm:text-sm shadow-lg transition-colors">
                 Contact Us on WhatsApp
               </button>
-            </a>
+            </form>
           </div>
         </div>
       )}
