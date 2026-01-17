@@ -47,13 +47,35 @@ const Contact = () => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const digits = phone.replace(/\D/g, '');
+    const formData = new FormData(event.currentTarget);
+    const name = (formData.get('name') || '').toString().trim();
+    const phoneValue = (formData.get('phone') || '').toString().trim();
+    const message = (formData.get('message') || '').toString().trim();
+
+    const digits = phoneValue.replace(/\D/g, '');
     if (digits.length !== 10) {
       setPhoneError('Please enter a valid 10 digit phone number');
       return;
     }
 
-    window.open(WHATSAPP_URL, '_blank');
+    const textLines = [
+      'Hello! I would like to know more about your products.',
+      '',
+      name ? `Name: ${name}` : '',
+      `Phone: ${phoneValue}`,
+      message ? `Message: ${message}` : '',
+      '',
+      'Please get back to me.',
+    ].filter(Boolean);
+
+    const encodedMessage = encodeURIComponent(textLines.join('\n'));
+    const whatsappUrl = `${WHATSAPP_URL}?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, '_blank');
+
+    event.currentTarget.reset();
+    setPhone('');
+    setPhoneError('');
   };
 
   return (
@@ -170,11 +192,13 @@ const Contact = () => {
                 <form className="space-y-4" onSubmit={handleSubmit}>
                   <input 
                     type="text" 
+                    name="name"
                     placeholder="Name *" 
                     className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#E88D14] focus:ring-1 focus:ring-[#E88D14] outline-none transition-colors bg-gray-50 text-gray-700 placeholder-gray-400 text-sm"
                   />
                   <input 
                     type="tel" 
+                    name="phone"
                     placeholder="Phone number *" 
                     maxLength={10}
                     pattern="\d{10}"
@@ -200,6 +224,7 @@ const Contact = () => {
                   </div>
                   <textarea 
                     rows={4}
+                    name="message"
                     placeholder="Message" 
                     maxLength={50}
                     className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#E88D14] focus:ring-1 focus:ring-[#E88D14] outline-none transition-colors bg-gray-50 text-gray-700 placeholder-gray-400 text-sm resize-none"
