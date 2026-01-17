@@ -30,10 +30,10 @@ const jars = [
 ];
 
 const spoons = [
-  { name: "Spoon 1", image: "/Products/Spoon/spoon 1.jpeg" },
-  { name: "Spoon 2", image: "/Products/Spoon/Spoon 2.jpeg" },
-  { name: "Spoon 3", image: "/Products/Spoon/Spoon 3.jpeg" },
-  { name: "Spoon 4", image: "/Products/Spoon/Spoon4.jpeg" },
+  { name: "Spoon 1", image: "/Products/Spoon/spoon_1.png" },
+  { name: "Spoon 2", image: "/Products/Spoon/Spoon_2.png" },
+  { name: "Spoon 3", image: "/Products/Spoon/Spoon_3.png" },
+  { name: "Spoon 4", image: "/Products/Spoon/Spoon4.png" },
 ];
 
 const ProductCategory = ({ title, products }: { title: string, products: { name: string, image: string }[] }) => (
