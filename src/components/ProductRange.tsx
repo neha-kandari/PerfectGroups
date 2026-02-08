@@ -5,44 +5,40 @@ const products = [
   {
     id: 1,
     name: "Alu M Caps 1",
-    image: "/Products/Measuring Caps/Alu M Caps 1.png",
+    image: "/Product Range/1.png",
   },
   {
     id: 2,
     name: "Alu M Caps 2",
-    image: "/Products/Measuring Caps/Alu_M_Caps_2.png",
+    image: "/Product Range/2.png",
   },
   {
     id: 3,
     name: "Alu M Caps",
-    image: "/Products/Measuring Caps/Alu_M_Caps.png",
+    image: "/Product Range/3.png",
   },
   {
     id: 4,
     name: "Clothianidin Jarss",
-    image: "/Products/PP,HDPE Jars/Clothianidin_Jars.png",
+    image: "/Product Range/4.png",
   },
   {
     id: 5,
     name: "Thia Jars",
-    image: "/Products/PP,HDPE Jars/Thia_Jars.png",
+    image: "/Product Range/5.png",
   },
   {
     id: 6,
     name: "Troll_Jars",
-    image: "/Products/PP,HDPE Jars/Troll_Jars.png",
+    image: "/Product Range/6.png",
   },
 ];
 
 const ProductRange = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsToShow, setItemsToShow] = useState(3);
-  const [shuffledProducts, setShuffledProducts] = useState(products);
 
   useEffect(() => {
-    const shuffled = [...products].sort(() => Math.random() - 0.5);
-    setShuffledProducts(shuffled);
-
     const handleResize = () => {
       if (window.innerWidth < 1024) {
         setItemsToShow(1);
@@ -58,7 +54,7 @@ const ProductRange = () => {
 
   const handlePrev = () => {
     setCurrentIndex((prev) => {
-      const maxIndex = Math.max(0, shuffledProducts.length - itemsToShow);
+      const maxIndex = Math.max(0, products.length - itemsToShow);
       const current = Math.min(prev, maxIndex);
       return current === 0 ? maxIndex : current - 1;
     });
@@ -66,7 +62,7 @@ const ProductRange = () => {
 
   const handleNext = () => {
     setCurrentIndex((prev) => {
-      const maxIndex = Math.max(0, shuffledProducts.length - itemsToShow);
+      const maxIndex = Math.max(0, products.length - itemsToShow);
       const current = Math.min(prev, maxIndex);
       return current === maxIndex ? 0 : current + 1;
     });
@@ -109,11 +105,11 @@ const ProductRange = () => {
               style={{
                 transform: `translateX(-${Math.min(
                   currentIndex,
-                  Math.max(0, shuffledProducts.length - itemsToShow)
+                  Math.max(0, products.length - itemsToShow)
                 ) * (100 / itemsToShow)}%)`,
               }}
             >
-              {shuffledProducts.map((product) => (
+              {products.map((product) => (
                 <div 
                   key={product.id} 
                   className="flex-shrink-0 w-full lg:w-1/3 px-4 group flex flex-col items-center"
@@ -126,10 +122,6 @@ const ProductRange = () => {
                       className="w-3/5 h-3/5 object-contain"
                     />
                   </div>
-                  <div className="relative pb-2 hidden lg:block">
-                    <h3 className="text-xl font-semibold text-gray-800 text-center">{product.name}</h3>
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-1 bg-[#C69C2E] rounded-full"></div>
-                  </div>
                 </div>
               ))}
             </div>
@@ -137,7 +129,7 @@ const ProductRange = () => {
 
           {/* Pagination Dots */}
           <div className="flex justify-center gap-2 mt-12">
-            {Array.from({ length: shuffledProducts.length - itemsToShow + 1 }).map((_, index) => (
+            {Array.from({ length: products.length - itemsToShow + 1 }).map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
