@@ -37,7 +37,7 @@ const WhoWeAre = () => {
               
               <div className="flex flex-col items-center flex-1 min-w-0">
                 <div className="w-full max-w-[100px] sm:max-w-[110px] md:max-w-[130px] h-28 sm:h-32 md:h-36 bg-[#E6DCC8] flex items-center justify-center relative overflow-hidden" style={{ borderRadius: '80% 80%  0 0 / 100% 100% 0 0' }}>
-                  <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-black">4</span>
+                  <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-black">5</span>
                 </div>
                 <div className="text-center mt-3 sm:mt-4">
                   <div className="font-bold text-gray-800 text-xs sm:text-sm md:text-base">Manufacturing</div>
@@ -45,7 +45,7 @@ const WhoWeAre = () => {
                 </div>
               </div>
               
-              <div className="flex flex-col items-center flex-1 min-w-0">
+              {/* <div className="flex flex-col items-center flex-1 min-w-0">
                 <div className="w-full max-w-[100px] sm:max-w-[110px] md:max-w-[130px] h-28 sm:h-32 md:h-36 bg-[#E6DCC8] flex items-center justify-center relative overflow-hidden" style={{ borderRadius: '80% 80% 0 0 / 100% 100% 0 0' }}>
                   <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-black">500+</span>
                 </div>
@@ -53,7 +53,7 @@ const WhoWeAre = () => {
                   <div className="font-bold text-gray-800 text-xs sm:text-sm md:text-base">Trusted</div>
                   <div className="font-bold text-gray-800 text-xs sm:text-sm md:text-base">Clients</div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
