@@ -86,7 +86,7 @@ const Navbar = () => {
       {/* Desktop Contact Us Button */}
       <div className="hidden md:flex items-center">
         <a
-          href="https://wa.me/919999703392"
+          href="https://wa.me/918882473038"
           target="_blank"
           rel="noopener noreferrer"
         >
