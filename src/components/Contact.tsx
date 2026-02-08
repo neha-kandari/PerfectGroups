@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent, type FormEvent } from 'react';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 
-const WHATSAPP_URL = 'https://wa.me/919999703392';
+const WHATSAPP_URL = 'https://wa.me/918882473038';
 
 const Contact = () => {
   const [phone, setPhone] = useState('');
